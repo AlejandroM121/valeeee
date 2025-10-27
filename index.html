@@ -104,16 +104,12 @@
     if (paso.img) html += `<img src="${paso.img}" alt="">`;
     if (paso.imgMultiple) {
   html += `
-    <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 10px;">
-      <img src="${paso.imgMultiple[0]}" style="width: 45%; border-radius: 10px;">
-      <img src="${paso.imgMultiple[1]}" style="width: 45%; border-radius: 10px;">
-    </div>
-    <div style="display: flex; justify-content: center; gap: 10px;">
-      <img src="${paso.imgMultiple[2]}" style="width: 45%; border-radius: 10px;">
-      <img src="${paso.imgMultiple[3]}" style="width: 45%; border-radius: 10px;">
+    <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 15px 0;">
+      ${paso.imgMultiple.map(img => `<img src="${img}" style="width: 150px; border-radius: 10px;">`).join('')}
     </div>
   `;
 }
+
 
 
     if (i === 0) {
@@ -161,5 +157,6 @@
 
 </body>
 </html>
+
 
 
