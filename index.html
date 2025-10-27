@@ -61,8 +61,8 @@
 <body>
 
 <div class="container" id="content">
-  <h1>¡Hola Valentina!</h1>
-  <button onclick="inicio()">INICIO</button>
+  <h1>PARA MON SOLEIL ❤️</h1>
+  <button onclick="inicio()">PRESIONAME</button>
 </div>
 
 <audio id="music" src="sweet.mp3"></audio>
@@ -71,13 +71,13 @@
   const content = document.getElementById('content');
   const music = document.getElementById('music');
   const imagenes = [
-    {texto: "¿PORQUE PARA MI ERES LA PERSONA PERFECTA?", boton: "¿Quieres saber por qué?"},
-    {texto: "Será por tus bellos ojos", img: "foto1.jpg"},
-    {texto: "Será por tu linda carita", img: "foto2.jpg"},
-    {texto: "Será tu lindo capul (tranquilado)", img: "foto3.jpg"},
-    {texto: "Será tus lindas pinturas", img: "foto4.jpg"},
+    {texto: "¿PORQUE PARA MI ERES LA PERSONA PERFECTA?", boton: "¿QUIERES SABER PORQUE?"},
+    {texto: "SERA POR TUS BELLOS OJOS", img: "foto1.jpg"},
+    {texto: "SERA POR TU LINDA CARITA", img: "foto2.jpg"},
+    {texto: "SERA POR TU LINDO CAPUL (TRASQUILADO) ", img: "foto3.jpg"},
+    {texto: "ACASO TUS LINDAS PINTURAS", img: "foto4.jpg"},
     {
-  texto: "O simplemente para mí eres perfecta tal y como eres",
+  texto: "O SIMPLEMENTE PARA MI ERES PERFECTA",
   imgMultiple: [
     "foto5a.jpg",
     "foto5b.jpg",
@@ -105,11 +105,19 @@
     if (paso.imgMultiple) {
   html += `
     <div style="display: flex; justify-content: center; gap: 10px; flex-wrap: wrap; margin: 15px 0;">
-      ${paso.imgMultiple.map(img => `<img src="${img}" style="max-width: 150px; max-height: 200px; border-radius: 10px; object-fit: cover;">`).join('')}
-
+      ${paso.imgMultiple.map((img, index) => {
+        if (index === 0 || index === 2) {
+          // Ajuste para foto5a y foto5c (más anchas y menos altas)
+          return `<img src="${img}" style="width: 170px; max-height: 140px; border-radius: 10px; object-fit: cover;">`;
+        } else {
+          // Las otras quedan como estaban
+          return `<img src="${img}" style="width: 150px; border-radius: 10px;">`;
+        }
+      }).join('')}
     </div>
   `;
 }
+
 
 
 
@@ -136,11 +144,11 @@
       content.innerHTML = `
         <h1>TE QUIERO MUCHO MI NIÑA 💖</h1>
         <p>Porque eres inteligente, responsable, capaz, divertida...<br>
-        A veces haces perecita, pero está bien 😄<br>
+        A veces haces perecita, pero está bien <br>
         A veces te puedes sentir triste, pero está bien 💕<br>
         Hay días malos y días buenos, pero todos los días te quiero aún más.<br><br>
         Si algún día te sientes triste sin saber por qué, vuelve a esta página para sentirte un poco mejor.</p>
-        <img src="714b6514-f3a5-49dd-bbb8-f3574393bee1.png" alt="">
+        <img src="GATITO.png" alt="">
       `;
       fadeIn();
     });
@@ -158,6 +166,7 @@
 
 </body>
 </html>
+
 
 
 
