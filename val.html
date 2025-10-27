@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Para mi persona perfecta</title>
+<style>
+  body {
+    margin: 0;
+    font-family: 'Segoe UI', sans-serif;
+    background: url('https://images.ctfassets.net/m3qyzuwrf176/7CiphyMEtd66rtvf93HsVe/821f1456be173a519417ad0a997e59cd/Ponyo_Marcom_Image010.jpg?w=2000&q=90&fm=webp') no-repeat center center fixed;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .container {
+    text-align: center;
+    color: #222;
+    background: rgba(255, 255, 255, 0.75);
+    padding: 30px;
+    border-radius: 20px;
+    width: 90%;
+    max-width: 500px;
+    transition: opacity 1s ease;
+  }
+
+  h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  button {
+    background-color: #ff91a4;
+    color: white;
+    border: none;
+    padding: 12px 25px;
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+  }
+
+  button:hover {
+    background-color: #ff6f91;
+  }
+
+  img {
+    width: 100%;
+    border-radius: 20px;
+    margin: 15px 0;
+  }
+
+  audio {
+    display: none;
+  }
+</style>
+</head>
+<body>
+
+<div class="container" id="content">
+  <h1>¡Hola Valentina!</h1>
+  <button onclick="inicio()">INICIO</button>
+</div>
+
+<audio id="music" src="sweet.mp3"></audio>
+
+<script>
+  const content = document.getElementById('content');
+  const music = document.getElementById('music');
+  const imagenes = [
+    {texto: "¿PORQUE PARA MI ERES LA PERSONA PERFECTA?", boton: "¿Quieres saber por qué?"},
+    {texto: "Será por tus bellos ojos", img: "foto1.jpg"},
+    {texto: "Será por tu linda carita", img: "foto2.jpg"},
+    {texto: "Será tu lindo capul (tranquilado)", img: "foto3.jpg"},
+    {texto: "Será tus lindas pinturas", img: "foto4.jpg"},
+    {
+  texto: "O simplemente para mí eres perfecta tal y como eres",
+  imgMultiple: [
+    "foto5a.jpg",
+    "foto5b.jpg",
+    "foto5c.jpg",
+    "foto5d.jpg"
+  ]
+},
+
+  ];
+
+  let index = 0;
+
+  function inicio() {
+    fadeOut(() => {
+      music.play();
+      mostrarPaso(0);
+    });
+  }
+
+  function mostrarPaso(i) {
+    index = i;
+    const paso = imagenes[i];
+    let html = `<h1>${paso.texto}</h1>`;
+    if (paso.img) html += `<img src="${paso.img}" alt="">`;
+    if (paso.imgMultiple) {
+  html += `
+    <div style="display: flex; justify-content: center; gap: 10px; margin-bottom: 10px;">
+      <img src="${paso.imgMultiple[0]}" style="width: 45%; border-radius: 10px;">
+      <img src="${paso.imgMultiple[1]}" style="width: 45%; border-radius: 10px;">
+    </div>
+    <div style="display: flex; justify-content: center; gap: 10px;">
+      <img src="${paso.imgMultiple[2]}" style="width: 45%; border-radius: 10px;">
+      <img src="${paso.imgMultiple[3]}" style="width: 45%; border-radius: 10px;">
+    </div>
+  `;
+}
+
+
+    if (i === 0) {
+      html += `<button onclick="siguiente()"> ${paso.boton} </button>`;
+    } else if (i < imagenes.length - 1) {
+      html += `<button onclick="siguiente()">O</button>`;
+    } else {
+      html += `<button onclick="final()">PRESIÓNAME</button>`;
+    }
+
+    fadeOut(() => {
+      content.innerHTML = html;
+      fadeIn();
+    });
+  }
+
+  function siguiente() {
+    if (index < imagenes.length - 1) mostrarPaso(index + 1);
+  }
+
+  function final() {
+    fadeOut(() => {
+      content.innerHTML = `
+        <h1>TE QUIERO MUCHO MI NIÑA 💖</h1>
+        <p>Porque eres inteligente, responsable, capaz, divertida...<br>
+        A veces haces perecita, pero está bien 😄<br>
+        A veces te puedes sentir triste, pero está bien 💕<br>
+        Hay días malos y días buenos, pero todos los días te quiero aún más.<br><br>
+        Si algún día te sientes triste sin saber por qué, vuelve a esta página para sentirte un poco mejor.</p>
+        <img src="714b6514-f3a5-49dd-bbb8-f3574393bee1.png" alt="">
+      `;
+      fadeIn();
+    });
+  }
+
+  function fadeOut(callback) {
+    content.style.opacity = 0;
+    setTimeout(callback, 800);
+  }
+
+  function fadeIn() {
+    content.style.opacity = 1;
+  }
+</script>
+
+</body>
+</html>
+
+
