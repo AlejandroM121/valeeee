@@ -140,19 +140,20 @@
   }
 
   function final() {
-    fadeOut(() => {
-      content.innerHTML = `
-        <h1>TE QUIERO MUCHO MI NIÑA 💖</h1>
-        <p>Porque eres inteligente, responsable, capaz, divertida...<br>
-        A veces haces perecita, pero está bien <br>
-        A veces te puedes sentir triste, pero está bien 💕<br>
-        Hay días malos y días buenos, pero todos los días te quiero aún más.<br><br>
-        Si algún día te sientes triste sin saber por qué, vuelve a esta página para sentirte un poco mejor.</p>
-        <img src="GATITO.png" alt="">
-      `;
-      fadeIn();
-    });
-  }
+  fadeOut(() => {
+    content.innerHTML = `
+      <h1>TE QUIERO MUCHO MI NIÑA 💖</h1>
+      <p>Porque eres inteligente, responsable, capaz, divertida...<br>
+      A veces haces perecita, pero está bien <br>
+      A veces te puedes sentir triste, pero está bien 💕<br>
+      Hay días malos y días buenos, pero todos los días te quiero aún más.<br><br>
+      Si algún día te sientes triste sin saber por qué, vuelve a esta página para sentirte un poco mejor.</p>
+      <img src="GATITO.png" alt="" style="width: 150px; border-radius: 15px;">
+    `;
+    fadeIn();
+  });
+}
+
 
   function fadeOut(callback) {
     content.style.opacity = 0;
@@ -166,6 +167,7 @@
 
 </body>
 </html>
+
 
 
 
